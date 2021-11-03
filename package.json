@@ -6,5 +6,9 @@
     "dependencies": {
         "commander": "^8.3.0",
         "has-flag": "^5.0.1"
-    }
+    },
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vlaadg/nodeTask1.git"
+  }
 }
