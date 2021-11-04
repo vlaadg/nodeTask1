@@ -1,19 +1,22 @@
 const { Transform } = require('stream');
 
-const {UncollapseDigits} = require('./code');
+const {UncollapseDigits, SumMattrix} = require('./code');
 
-class UncollapseTransform extends Transform {
+class CustomTransform extends Transform {
     constructor(action) {
       super();
       this.action = action;
     }
-  
+    
     _transform(chunk, _, done) {
       let result = '';
   
       switch (this.action) {
         case 'uncollapse':
           result = UncollapseDigits(chunk.toString('utf8'));
+          break;
+          case 'sumMattrix':
+          result = SumMattrix();
           break;
         default:
           process.stderr.write(' Erorr: Action not found\n');
@@ -24,4 +27,4 @@ class UncollapseTransform extends Transform {
       done();
     }
   }
-  module.exports = UncollapseTransform;
+  module.exports = CustomTransform;

@@ -4,7 +4,7 @@ const program = require('commander');
 const util = require('util');
 
 const valid = require('./module/valid');
-const UncollapseTransform = require('./module/transform');
+const CustomTransform = require('./module/transform');
 const pipeline = util.promisify(stream.pipeline);
 
 const actions = async _ => {
@@ -17,7 +17,7 @@ const actions = async _ => {
   try {
     await pipeline(
       ReadableStream,
-      new UncollapseTransform(action),
+      new CustomTransform(action),
       WriteableStream
     );
     process.stdout.write(`Text ${action}d\n`);
@@ -26,12 +26,13 @@ const actions = async _ => {
     process.exit(1);
   }
 }
+
 process.stdin.setEncoding('utf8');
 
 program
-  .requiredOption('-a --action <action>', 'An action uncollapse')
+  .requiredOption('-a --action <action>', 'An action complete')
   .option('-i, --input <filename>', 'An input file')
-  .option('-o --output <filename>', 'An output file')
+  .option('-o, --output <filename>', 'An output file')
   .action(actions)
 
 program.parse(process.argv);

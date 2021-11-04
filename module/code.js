@@ -12,3 +12,7 @@ module.exports.UncollapseDigits = function UncollapseDigits(digits){
     return str.trim()
   }
   const digit = "zero nine one one eight two seven three six four two five".split(' ')
+  
+module.exports.SumMattrix = function SumMattrix(arr){
+  return arr;
+}
