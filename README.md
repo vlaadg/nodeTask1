@@ -40,3 +40,10 @@ $ node cli -a uncollapse
 ```
 $ node cli -a sumMattrix
 ```
+For action sumMattrix need enter text through ":" , for example:  
+1.  [[1]]:[[2]] -> 3
+2.  [[1,2],[2,2]]:[[1,3],[3,1]] -> 2,5,5,3
+
+For action uncollapse need to enter text without ' ' , for example:
+1. onetwothree -> one two three
+2. onezeroninefoursix -> one zero nine four six
