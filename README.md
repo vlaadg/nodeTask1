@@ -26,11 +26,17 @@ CLI tool accept 3 options (short alias and full name):
 Uncollapse || MattrixAddition input.txt to output.txt:
 
 ```
-$ node cli -i "./input.txt" -o "./output.txt" -a {uncollapse || sumMattrix}
+$ node cli -i "./input.txt" -o "./output.txt" -a uncollapse
+
+$ node cli -i "./input.txt" -o "./output.txt" -a sumMattrix
+
 ```
 
 Uncollapse || MattrixAddition stdin to stdout:
 
 ```
-$ node cli -a {uncollapse || sumMattrix}
+$ node cli -a uncollapse
+
+$ node cli -a sumMattrix
+
 ```
