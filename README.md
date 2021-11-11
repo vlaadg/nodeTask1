@@ -1,5 +1,5 @@
 # task1
-## Uncollapse CLI tool
+## Uncollapse digits || MattrixAddition CLI tool
 
 ## Run app
 
@@ -23,14 +23,14 @@ CLI tool accept 3 options (short alias and full name):
 2.  -o, --output: an output file
 3.  -a, --action: an action complete
 
-Uncollapse input.txt to output.txt:
+Uncollapse || MattrixAddition input.txt to output.txt:
 
 ```
-$ node uncollapse.js -i "./input.txt" -o "./output.txt" -a uncollapse
+$ node cli -i "./input.txt" -o "./output.txt" -a {uncollapse || sumMattrix}
 ```
 
-Uncollapse stdin to stdout:
+Uncollapse || MattrixAddition stdin to stdout:
 
 ```
-$ node uncollapse.js -a uncollapse
+$ node cli -a {uncollapse || sumMattrix}
 ```

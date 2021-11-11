@@ -8,11 +8,19 @@ const CustomTransform = require('./module/transform');
 const pipeline = util.promisify(stream.pipeline);
 
 const actions = async _ => {
-  const {input, output, action } = program.opts();
-     process.stdout.write('Enter the text and press ENTER to uncollapse | press CTRL + C to exit: ')
+  const {
+    input,
+    output,
+    action
+  } = program.opts();
+  process.stdout.write('Enter the text and press ENTER to uncollapse ||' +
+    'enter the Mattrix through ":" and press ENTER to sum Mattrix | press CTRL + C to exit: \n')
 
   const ReadableStream = !valid.isEmpty(input) ? fs.createReadStream(input) : process.stdin;
-  const WriteableStream = !valid.isEmpty(output) ? fs.createWriteStream((output), { flags: 'a' }) : process.stdout;
+  const WriteableStream = !valid.isEmpty(output) ? fs.createWriteStream((output), {
+    flags: 'a'
+  }) : process.stdout;
+
 
   try {
     await pipeline(
@@ -20,7 +28,10 @@ const actions = async _ => {
       new CustomTransform(action),
       WriteableStream
     );
-    process.stdout.write(`Text ${action}d\n`);
+    if (action === "uncollapse")
+      process.stdout.write(`Text ${action}d\n`);
+    if (action === "sumMattrix")
+      process.stdout.write(`Action complete\n`);
   } catch (e) {
     process.stderr.write(` ${e.message}\n`);
     process.exit(1);
