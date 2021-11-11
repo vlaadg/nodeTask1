@@ -25,12 +25,7 @@ class CustomTransform extends Transform {
         process.stderr.write(' Erorr: Action not found \n');
         process.exit(1);
     }
-    if (this.action === 'uncollapse')
       this.push("Result: " + result + "\n");
-    process.stdout.write('Enter the text and press ENTER to uncollapse | press CTRL + C to exit: \n')
-    if (this.action === 'sumMattrix')
-      this.push("Result: " + result + "\n");
-    process.stdout.write('Enter the Mattrix through ":" and press ENTER to sum Mattrix | press CTRL + C to exit: \n');
     done();
   }
 }
